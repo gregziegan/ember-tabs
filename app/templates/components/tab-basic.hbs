@@ -1,1 +1,3 @@
-{{component tab.componentName active=tab.active content=tab.content}}
+{{#each tab.children as |child|}}
+  {{component child.component active=child.active data=child.data}}
+{{/each}}

@@ -1,16 +1,25 @@
 import Ember from 'ember';
 
-const toId = (data) => data.id;
+const toId = (data) => {
+  return data.id;
+}
 
 export default Ember.Route.extend({
   model() {
     return {
       config: {
         toId: toId,
-        getHtml: (data, selected) => {
-          return { componentName: 'ticket-tab', active: selected == toId(data), content: data };
+        toTab: (data, selected) => {
+          return {
+            li: selected ? 'c-tab__list__item is-selected' : 'c-tab__list__item',
+            children: [
+              { component: 'ticket-tab',
+                active: selected == toId(data),
+                data,
+              }
+            ]
+          }
         },
-        li: (data, selected) => { return selected ? 'c-tab__list__item is-selected' : 'c-tab__list__item' },
       },
       tabs: [
         {id: 'all', title: 'All comments', count: 9},
