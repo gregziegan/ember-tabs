@@ -14,7 +14,6 @@ export default Ember.Component.extend({
     const config = this.get('config');
     const data = this.get('data');
     const active = this.get('active');
-    console.log(config)
     const id = config.toId(data);
     const isActive = active === id;
     if (!isActive) {
