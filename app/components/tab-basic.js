@@ -12,21 +12,6 @@ export default Ember.Component.extend({
     this.setProperties(properties);
   }.on('didReceiveAttrs'),
 
-  // updateCustomProps: Ember.observer('tab', function () {
-  //   console.log('did tab change?')
-  //   console.log(this.getProperties('classNames'))
-  //   const { classNames, attributes } = this.get('tab').li;
-  //   console.log(classNames)
-  //   const properties = { classNames: ['ember-view', ...classNames] };
-  //   this.setProperties(properties);
-  // }),
-  didRender() {
-    this._super(...arguments);
-    console.log('render?')
-    console.log(this.getProperties('classNames'))
-    // this.$('.item-list').scrollTop(this.$('.selected-item').position.top);
-  },
-
   click: function() {
     const config = this.get('config');
     const data = this.get('data');
