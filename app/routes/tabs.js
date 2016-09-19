@@ -20,7 +20,11 @@ export default Ember.Route.extend({
         toId: toId,
         toTab: (data, isSelected) => {
           return {
-            li: isSelected ? 'c-tab__list__item is-selected' : 'c-tab__list__item',
+            li:
+              { classNames: [ isSelected ? 'c-tab__list__item is-selected' : 'c-tab__list__item' ],
+                attributes: { 'data-something': 'hey' }
+              },
+
             children: [
               { component: 'ticket-tab',
                 active: isSelected,
